@@ -10,7 +10,7 @@ let base_url = `http://api.themoviedb.org/3/${recurso}`;
 
 let pelicula = null;
 
-let number = 0;
+let number;
 
 const call = async(url) => {
     let res = await axios.get(url);
@@ -26,13 +26,11 @@ const call = async(url) => {
 
 const buscador = async() => {
     let query = valor.value;
+    //Query = consulta
+
 
     let url = `${base_url}/${criterio}?api_key=${key}&query=${query}`;
 
-    if (query == number) {
-        recurso = find;
-        return pelicula.external_id;
-    }
 
     pelicula = await call(url);
 
@@ -54,3 +52,24 @@ const pintar = async(coleccionPintar) => {
     return content;
 
 };
+// http://api.themoviedb.org/3/search/movie/?api_key=c0b6dea31a9d647a6b7d1eafa59bacaa&query=${query}
+
+/*
+https://api.themoviedb.org/3/movie/53865?api_key=c0b6dea31a9d647a6b7d1eafa59bacaa&language=en-US
+
+let link = `${base_url}/${criterio}/${id}?api_key=${key}&language=en-US`;
+
+Tendríamos que cambiar el url por otra variable que recoja el ID y nos haga la búsqueda.
+O bien hacer funciones diferentes funciones o diferentes buscadores para el ID para poder pasar diferente URL. 
+
+let id = valor.value;
+
+<input id="buscadorID" type="text" placesholder="titulo">
+<button onclick="buscador()">Busca</button>
+
+Coger el ID
+https://developers.themoviedb.org/3/movies/get-movie-details
+    
+http://api.themoviedb.org/3/movie/upcoming?api_key=bb78e4cf3442e302d928f2c5edcdbee1
+TODAS LAS PELICULAS
+*/
