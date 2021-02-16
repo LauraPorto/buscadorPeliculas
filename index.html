@@ -7,16 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Movies</title>
 
-    <link href="css/style.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <input id="buscador" type="text" placesholder="titulo">
-    <button onclick="buscador()">Busca</button>
 
 
-    <div id="contenedor"></div>
+    <div class="titulo">
+
+        <div class="estructura">
+
+            <input id="buscador" type="text" placesholder="titulo">
+            </br>
+            <button onclick="buscador()">Título</button>
+            </br>
+            </br>
+            <input id="buscadorID" type="text" placesholder="ID">
+            </br>
+            <button onclick="buscadorID()">ID</button>
+
+
+        </div>
+
+        <p>Movie Search</p>
+        <div id="contenedor"></div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="js/main.js"></script>
